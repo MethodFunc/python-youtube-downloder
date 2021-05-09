@@ -71,7 +71,7 @@ def youtube_downloader(url):
 
     else:
         # audio codec is include
-        videos[num].download()
+        videos[num].download(filename=title)
 
     print(f"Complete: {datetime.now() - start}s")
 
