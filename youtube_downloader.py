@@ -48,8 +48,8 @@ def youtube_downloader(url):
         video_input = ffmpeg.input(f"./temp/{title}.mp4")
         audio_input = ffmpeg.input(f"./temp/{audio_title}.mp4")
         output = ffmpeg.output(video_input, audio_input, filename=f"./{title}.mp4", vcodec="copy", acodec="copy",
-                               f="mp4", )
-        ffmpeg.run(output, overwrite_output=True)
+                               f="mp4")
+        ffmpeg.run(output, quiet=True, overwrite_output=True)
 
         # delete default files & temp folder
         if os.path.isfile(f"./temp/{title}.mp4"):
