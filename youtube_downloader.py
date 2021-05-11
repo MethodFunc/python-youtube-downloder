@@ -3,12 +3,14 @@
 import pytube
 import os
 import re
-from datetime import datetime
 import ffmpeg
+
+from pytube.cli import on_progress
+from datetime import datetime
 
 
 def youtube_downloader(url):
-    yt = pytube.YouTube(url)
+    yt = pytube.YouTube(url, on_progress_callback=on_progress)
     videos = yt.streams.filter(mime_type="video/mp4").order_by("resolution").desc()
 
     for n, video in enumerate(videos):
