@@ -1,4 +1,3 @@
-from os import environb
 import subprocess
 import time
 
